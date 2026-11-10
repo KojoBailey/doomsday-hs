@@ -97,7 +97,7 @@ centuryAnchor 3 = Friday
 centuryAnchor century = centuryAnchor $ century `mod` 4
 
 yearAnchor :: Integer -> Day
-yearAnchor year = centuryAnchor $ ((year - (year `mod` 100)) `div` 100) + 1
+yearAnchor year = centuryAnchor $ (year `div` 100) + 1
 
 yearDoomsday :: Integer -> Day
 yearDoomsday year = toDay $ (`mod` 7) $ sum [last2digits `div` 12, remainder, remainder `div` 4, fromDay (yearAnchor year)]
