@@ -90,10 +90,10 @@ monthDoomsday December  _     = 12
 -- Gregorian only
 -- 21 = 2000s
 centuryAnchor :: Integer -> Day
-centuryAnchor 3 = Friday
 centuryAnchor 0 = Wednesday
-centuryAnchor 2 = Sunday
 centuryAnchor 1 = Tuesday
+centuryAnchor 2 = Sunday
+centuryAnchor 3 = Friday
 centuryAnchor century = centuryAnchor $ century `mod` 4
 
 yearAnchor :: Integer -> Day
