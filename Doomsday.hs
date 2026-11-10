@@ -100,10 +100,10 @@ yearAnchor :: Integer -> Day
 yearAnchor year = centuryAnchor $ (year `div` 100) + 1
 
 yearDoomsday :: Integer -> Day
-yearDoomsday year = toDay $ (`mod` 7) $ sum [last2digits `div` 12, remainder, remainder `div` 4, fromDay (yearAnchor year)]
+yearDoomsday year = toDay $ (`mod` 7) $ sum [last2Digits `div` 12, remainder, remainder `div` 4, fromDay (yearAnchor year)]
   where
-    last2digits = year `mod` 100
-    remainder = last2digits `rem` 12
+    last2Digits = year `mod` 100
+    remainder = last2Digits `rem` 12
 
 dayOf :: Integer -> Month -> Integer -> Day
 dayOf year month dd = toDay $ (dd - (monthDoomsday month isLeapYear) + fromDay (yearDoomsday year)) `mod` 7
